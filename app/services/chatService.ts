@@ -10,7 +10,6 @@ export async function sendMessage(
 
     switch (chat.type) {
         case 'chat':
-            console.log('Chat response', response)
             return {
                 content: (response as string)
             }
@@ -25,12 +24,10 @@ export async function sendMessage(
 
             const message = `${res.content}
             
-            *STATS*
-            inputTokenCount: ${res.inputTokenCount}
-            outputTokenCount: ${res.outputTokenCount}
-            totalTokenCount: ${res.totalTokenCount}`
-
-            console.log('Templated response', message)
+*STATS*
+inputTokenCount: ${res.inputTokenCount}
+outputTokenCount: ${res.outputTokenCount}
+totalTokenCount: ${res.totalTokenCount}`
 
             return { content: message }
         }
@@ -60,8 +57,6 @@ performAction:
 ${action}`
             }).join('\n\n')}`
 
-            console.log('Templated response', message)
-
             return { content: message }
         }
         case 'routing':
@@ -75,7 +70,6 @@ ${action}`
 
 Prompt intent: ${res.intent}`
 
-            console.log('Templated response', message)
             return { content: message }
         }
     }

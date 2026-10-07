@@ -25,7 +25,6 @@ const chat = {
     sessionId: route.query.sessionId as string | undefined,
     type: route.query.type as ChatType
 }
-console.log('Chat sessionId:', chat.sessionId, 'type:', chat.type)
 
 const { messages, loading, error, send } = useChat(chat)
 </script>
